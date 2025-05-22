@@ -1,0 +1,8 @@
+pandas
+requests
+pytest
+coverage
+requests
+beautifulsoup4
+lxml
+pandas
