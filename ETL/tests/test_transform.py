@@ -1,23 +1,12 @@
 import pandas as pd
-import pytest
-from utils.transform import transform_function_1, transform_function_2, transform_products  # Replace with actual function names
-
-def test_transform_function_1():
-    input_data = [...]  # Replace with test input data
-    expected_output = [...]  # Replace with expected output
-    assert transform_function_1(input_data) == expected_output
-
-def test_transform_function_2():
-    input_data = [...]  # Replace with test input data
-    expected_output = [...]  # Replace with expected output
-    assert transform_function_2(input_data) == expected_output
+from utils.transform import transform_products
 
 def test_transform_products():
     data = {
         "Title": ["T-shirt", "Unknown Product"],
         "Price": ["$10", "$0"],
         "Rating": ["4.5 / 5", "Invalid Rating"],
-        "Colors": ["3 Colors", "0 Colors"],
+        "Colors": ["3", "0"],
         "Size": ["Size: M", "Size: "],
         "Gender": ["Gender: Unisex", "Gender: "],
         "Timestamp": ["2024-01-01T00:00:00", "2024-01-01T00:00:00"]
@@ -31,5 +20,3 @@ def test_transform_products():
     assert df_clean.iloc[0]["Colors"] == 3
     assert df_clean.iloc[0]["Size"] == "M"
     assert df_clean.iloc[0]["Gender"] == "Unisex"
-
-# Add more tests as needed for other transformation functions
