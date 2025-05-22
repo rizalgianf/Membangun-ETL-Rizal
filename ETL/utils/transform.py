@@ -9,8 +9,10 @@ def clean_price(price_str):
         return None
 
 def clean_rating(rating_str):
-    # Contoh: "4.8 / 5" -> 4.8
+    # Contoh: "⭐ 3.9 / 5" -> 3.9
     try:
+        if "⭐" in rating_str:
+            rating_str = rating_str.replace("⭐", "").strip()
         return float(rating_str.split("/")[0].strip())
     except:
         return None
@@ -18,7 +20,7 @@ def clean_rating(rating_str):
 def clean_colors(colors_str):
     # Contoh: "3 Colors" -> 3
     try:
-        return int(colors_str.split()[0])
+        return int(colors_str)
     except:
         return None
 
